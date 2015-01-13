@@ -20,8 +20,12 @@ Rectangle {
             font.pixelSize: 12
         }
 
+        Button {
+            text: "Button"
+        }
+
         Text {
-            id: text1
+            id: connect_button
             x: 0
             y: 27
             width: 60
@@ -29,6 +33,17 @@ Rectangle {
             text: qsTr("Connect")
             font.pointSize: 9
             clip: false
+            font.pixelSize: 12
+        }
+
+        TextEdit {
+            id: logs_text
+            x: 0
+            y: 58
+            width: 500
+            height: 342
+            text: qsTr("")
+            readOnly: true
             font.pixelSize: 12
         }
 

@@ -20,6 +20,10 @@ Rectangle {
             font.pixelSize: 12
         }
 
+        Button {
+            text: "Button"
+        }
+
         Text {
             id: connect_button
             x: 0
