@@ -14,6 +14,9 @@ class Client : public QWidget
 public:
     explicit Client(QWidget *parent = 0);
     ~Client();
+
+public slots:
+    void sendToServer();
     
 private:
     Ui::Client *ui;
