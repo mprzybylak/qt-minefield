@@ -1,8 +1,15 @@
 #include "setupserviceimpl.h"
 
-SetupServiceImpl::SetupServiceImpl()
+SetupServiceImpl::SetupServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository):
+    serverSetupFactory(serverSetupFactory),
+    serverSetupRepository(serverSetupRepository)
 {
 
+}
+
+SetupServiceImpl::~SetupServiceImpl() {
+    delete serverSetupFactory;
+    delete serverSetupRepository;
 }
 
 void SetupServiceImpl::turnOnServer()
@@ -19,3 +26,6 @@ void SetupServiceImpl::selectDirectoryToServe(QString path)
 {
 
 }
+
+
+

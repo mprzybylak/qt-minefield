@@ -2,16 +2,24 @@
 #define SETUPSERVICEIMPL_H
 
 #include "../api/SetupService.h"
+#include "../../domain/Setup/serversetupfactory.h"
+#include "../../domain/Setup/ServerSetupRepository.h"
 
 class SetupServiceImpl : public SetupService
 {
 public:
-    SetupServiceImpl();
+    SetupServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository);
+    virtual ~SetupServiceImpl();
 
-    void virtual turnOnServer();
-    void virtual turnOffServer();
+    void turnOnServer();
+    void turnOffServer();
 
-    void virtual selectDirectoryToServe(QString path);
+    void selectDirectoryToServe(QString path);
+
+private:
+
+    ServerSetupFactory* serverSetupFactory;
+    ServerSetupRepository* serverSetupRepository;
 };
 
 #endif // SETUPSERVICEIMPL_H
