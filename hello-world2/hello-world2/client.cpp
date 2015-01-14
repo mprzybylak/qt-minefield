@@ -9,8 +9,10 @@ Client::Client(QWidget *parent) :
     ui(new Ui::Client)
 {
     ui->setupUi(this);
+    serverProxy = new ValueProviderProxy("pl.mprzybylak.Server", "/Server", QDBusConnection::sessionBus());
 
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(sendToServer()));
+
 
 
 }
@@ -22,8 +24,13 @@ Client::~Client()
 
 
 void Client::sendToServer() {
-    // d-bus
 
+    qDebug() << "Try to connect to server";
+    int value = serverProxy->getValue();
+    qDebug() << "Value From Server=" << value;
+    ui->textEdit->append(QString::number(value));
+    /*
+    // d-bus classic
     // create message (message call)
     QDBusMessage message = QDBusMessage::createMethodCall(
                 "org.foo.bar", // service name
@@ -41,4 +48,5 @@ void Client::sendToServer() {
     // wrapper for sync call
     QDBusMessage response = QDBusConnection::sessionBus().call(message);
     ui->textEdit->append(response.errorMessage());
+    */
 }

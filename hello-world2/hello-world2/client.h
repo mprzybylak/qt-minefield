@@ -2,6 +2,7 @@
 #define CLIENT_H
 
 #include <QWidget>
+#include "valueproviderproxy.h"
 
 namespace Ui {
 class Client;
@@ -19,7 +20,8 @@ public slots:
     void sendToServer();
     
 private:
-    Ui::Client *ui;
+    Ui::Client* ui;
+    ValueProviderProxy* serverProxy;
 };
 
 #endif // CLIENT_H
