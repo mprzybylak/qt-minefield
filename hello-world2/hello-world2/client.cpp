@@ -12,9 +12,6 @@ Client::Client(QWidget *parent) :
     serverProxy = new ValueProviderProxy("pl.mprzybylak.Server", "/Server", QDBusConnection::sessionBus());
 
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(sendToServer()));
-
-
-
 }
 
 Client::~Client()
@@ -24,10 +21,7 @@ Client::~Client()
 
 
 void Client::sendToServer() {
-
-    qDebug() << "Try to connect to server";
     int value = serverProxy->getValue();
-    qDebug() << "Value From Server=" << value;
     ui->textEdit->append(QString::number(value));
     /*
     // d-bus classic

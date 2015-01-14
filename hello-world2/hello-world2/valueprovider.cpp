@@ -11,13 +11,10 @@ ValueProvider::ValueProvider(QObject *parent) :
 }
 
 int ValueProvider::getValue() {
-    qDebug() << "Connection from client";
     return value;
 }
 
 void ValueProvider::changeValue(QString value) {
-
-    qDebug() << "Signal = " << value;
 
     bool isInteger;
     int intValue = value.toInt(&isInteger);
