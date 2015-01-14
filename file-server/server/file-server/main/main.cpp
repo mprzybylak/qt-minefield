@@ -5,6 +5,7 @@
 #include "setup/domain/Setup/serversetupfactory.h"
 #include "setup/infrastructure/repository/inmemoryserversetuprepository.h"
 
+// /*
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +13,7 @@ int main(int argc, char *argv[])
 
     ServerSetupRepository* repository = new InMemoryServerSetupRepository();
     ServerSetupFactory* factory = new ServerSetupFactory();
+
     SetupService* setupService = new SetupServiceImpl(factory, repository);
 
     ServerWidget w(setupService, 0);
@@ -21,3 +23,4 @@ int main(int argc, char *argv[])
 }
 
 
+// */

@@ -26,3 +26,11 @@ bool ServerSetup::isServerRunning()
 {
     return serverRunning;
 }
+
+void ServerSetup::setBaseDirectoryPath(QString path) {
+    baseDirectoryPath = path;
+}
+
+QString ServerSetup::getBaseDirectoryPath() {
+    return baseDirectoryPath;
+}

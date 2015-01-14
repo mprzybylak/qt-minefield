@@ -3,7 +3,7 @@
 #include "../../../../main/setup/domain/Setup/illegalserversetupexception.h"
 
 
-
+// TODO separate files
 
 class ServerSetupTest : public QObject
 {
@@ -15,10 +15,9 @@ private slots:
     void shouldAllowToTurnOffServer();
     void shouldNotAllowToTurnOnRunningServer();
     void shouldNotAllowToTurnOffStopedServer();
+    void shouldAllowToStoreBaseDirectory();
+    void shouldAllowToOverwriteBaseDirectory();
 };
-
-
-
 
 void ServerSetupTest::shouldAllowToTurnOnServer()
 {
@@ -76,6 +75,38 @@ void ServerSetupTest::shouldNotAllowToTurnOffStopedServer()
     }
 }
 
+void ServerSetupTest::shouldAllowToStoreBaseDirectory()
+{
+    // given
+    const QString PATH = "/home/";
+    ServerSetup serverSetup;
 
+    // when
+    serverSetup.setBaseDirectoryPath(PATH);
+
+    // then
+    QVERIFY(serverSetup.getBaseDirectoryPath() == PATH);
+
+}
+
+void ServerSetupTest::shouldAllowToOverwriteBaseDirectory()
+{
+    // given
+    const QString OLD_PATH = "/home/old";
+    const QString NEW_PATH = "/home/new";
+    ServerSetup serverSetup;
+    serverSetup.setBaseDirectoryPath(OLD_PATH);
+
+    // when
+    serverSetup.setBaseDirectoryPath(NEW_PATH);
+
+    // then
+    QVERIFY(serverSetup.getBaseDirectoryPath() != OLD_PATH);
+    QVERIFY(serverSetup.getBaseDirectoryPath() == NEW_PATH);
+
+}
+
+ /*
 QTEST_MAIN(ServerSetupTest)
 #include "serversetuptest.moc"
+ */

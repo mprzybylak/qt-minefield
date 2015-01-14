@@ -15,6 +15,10 @@ class ServerWidget : public QWidget
 public:
     explicit ServerWidget(SetupService* setupService, QWidget* parent = 0);
     ~ServerWidget();
+
+private slots:
+    void startStopServer();
+    void selectDirectory();
     
 private:
     Ui::ServerWidget *ui;

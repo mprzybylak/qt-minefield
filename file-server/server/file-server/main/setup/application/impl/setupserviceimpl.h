@@ -13,6 +13,7 @@ public:
 
     void turnOnServer();
     void turnOffServer();
+    bool isServerRunning();
 
     void selectDirectoryToServe(QString path);
 
