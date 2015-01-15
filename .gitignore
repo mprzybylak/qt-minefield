@@ -1,0 +1,9 @@
+# build directories
+build-*-Release/*
+build-*-Debug/*
+
+# qt creator user setup files
+*.pro.user
+*.pro.user.*
+
+
