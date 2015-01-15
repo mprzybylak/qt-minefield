@@ -11,7 +11,6 @@ class SetupServiceImpl : public SetupService
 public:
 
     SetupServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository);
-    virtual ~SetupServiceImpl();
 
     void turnOnServer();
     void turnOffServer();

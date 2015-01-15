@@ -16,7 +16,6 @@ class ServerWidget : public QWidget
 public:
 
     explicit ServerWidget(SetupService* setupModel, QFileSystemModel* fileModel, QWidget* parent = 0);
-    ~ServerWidget();
 
 private slots:
     void startStopServer();

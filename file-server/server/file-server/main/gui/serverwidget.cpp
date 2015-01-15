@@ -37,9 +37,3 @@ void ServerWidget::selectDirectory()
     view->fileTable->setRootIndex(fileModel->index(dir));
 }
 
-ServerWidget::~ServerWidget()
-{
-    delete view;
-    delete setupModel;
-    delete fileModel;
-}

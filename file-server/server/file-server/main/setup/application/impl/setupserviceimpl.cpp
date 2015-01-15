@@ -7,11 +7,6 @@ SetupServiceImpl::SetupServiceImpl(ServerSetupFactory* serverSetupFactory, Serve
 
 }
 
-SetupServiceImpl::~SetupServiceImpl() {
-    delete serverSetupFactory;
-    delete serverSetupRepository;
-}
-
 void SetupServiceImpl::turnOnServer()
 {
     ServerSetup* setup = serverSetupRepository->load();

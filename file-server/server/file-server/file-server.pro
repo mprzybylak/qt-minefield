@@ -18,7 +18,9 @@ SOURCES += main/main.cpp\
     main/setup/domain/Setup/illegalserversetupexception.cpp \
     main/setup/domain/Setup/serversetupfactory.cpp \
     main/setup/infrastructure/repository/inmemoryserversetuprepository.cpp \
-    main/setup/application/impl/setupserviceimpl.cpp
+    main/setup/application/impl/setupserviceimpl.cpp \
+    main/setup/application/impl/fileserviceimpl.cpp \
+    main/serverapplication.cpp
 
 HEADERS  += main/gui/serverwidget.h \
     main/setup/domain/Setup/serversetup.h \
@@ -27,6 +29,9 @@ HEADERS  += main/gui/serverwidget.h \
     main/setup/domain/Setup/ServerSetupRepository.h \
     main/setup/infrastructure/repository/inmemoryserversetuprepository.h \
     main/setup/application/api/setupservice.h \
-    main/setup/application/impl/setupserviceimpl.h
+    main/setup/application/impl/setupserviceimpl.h \
+    main/setup/application/api/fileservice.h \
+    main/setup/application/impl/fileserviceimpl.h \
+    main/serverapplication.h
 
 FORMS    += main/gui/serverwidget.ui
