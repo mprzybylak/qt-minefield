@@ -5,13 +5,13 @@
 #include "../../domain/Setup/serversetupfactory.h"
 #include "../../domain/Setup/ServerSetupRepository.h"
 
-class SetupServiceImpl : public SetupService
+class ServerServiceImpl : public ServerService
 {
 
 public:
 
-    SetupServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository);
-    virtual ~SetupServiceImpl();
+    ServerServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository);
+    virtual ~ServerServiceImpl();
 
     void turnOnServer();
     void turnOffServer();

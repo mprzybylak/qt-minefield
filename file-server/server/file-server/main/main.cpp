@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     // SETUP SERVICE
     ServerSetupRepository* repository = new InMemoryServerSetupRepository();
     ServerSetupFactory* factory = new ServerSetupFactory();
-    SetupService* setupService = new SetupServiceImpl(factory, repository);
+    ServerService* setupService = new ServerServiceImpl(factory, repository);
 
     // FILE MODEL
     QFileSystemModel* fileModel = new QFileSystemModel();

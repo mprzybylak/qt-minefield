@@ -1,18 +1,18 @@
 #include "setupserviceimpl.h"
 
-SetupServiceImpl::SetupServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository):
+ServerServiceImpl::ServerServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository):
     serverSetupFactory(serverSetupFactory),
     serverSetupRepository(serverSetupRepository)
 {
 
 }
 
-SetupServiceImpl::~SetupServiceImpl() {
+ServerServiceImpl::~ServerServiceImpl() {
     delete serverSetupFactory;
     delete serverSetupRepository;
 }
 
-void SetupServiceImpl::turnOnServer()
+void ServerServiceImpl::turnOnServer()
 {
     ServerSetup* setup = serverSetupRepository->load();
     if(setup == 0) {
@@ -24,7 +24,7 @@ void SetupServiceImpl::turnOnServer()
     serverSetupRepository->store(setup);
 }
 
-void SetupServiceImpl::turnOffServer()
+void ServerServiceImpl::turnOffServer()
 {
     ServerSetup* setup = serverSetupRepository->load();
     if(setup == 0) {
@@ -36,7 +36,7 @@ void SetupServiceImpl::turnOffServer()
     serverSetupRepository->store(setup);
 }
 
-bool SetupServiceImpl::isServerRunning()
+bool ServerServiceImpl::isServerRunning()
 {
     ServerSetup* setup = serverSetupRepository->load();
     if(setup == 0) {
@@ -47,7 +47,7 @@ bool SetupServiceImpl::isServerRunning()
     return setup->isServerRunning();
 }
 
-void SetupServiceImpl::selectDirectoryToServe(QString directoryToServe)
+void ServerServiceImpl::selectDirectoryToServe(QString directoryToServe)
 {
     this->directoryToServe = directoryToServe;
 }

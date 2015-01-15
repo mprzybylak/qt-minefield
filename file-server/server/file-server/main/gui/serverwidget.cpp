@@ -3,7 +3,7 @@
 #include <QFileDialog>
 #include <QDebug>
 
-ServerWidget::ServerWidget(SetupService* setupModel, QFileSystemModel *fileModel, QWidget *parent) :
+ServerWidget::ServerWidget(ServerService* setupModel, QFileSystemModel *fileModel, QWidget *parent) :
     setupModel(setupModel),
     view(new Ui::ServerWidget),
     fileModel(fileModel),

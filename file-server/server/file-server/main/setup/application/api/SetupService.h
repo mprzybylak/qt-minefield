@@ -3,11 +3,11 @@
 
 #include <QString>
 
-class SetupService {
+class ServerService {
 
 public:
 
-    virtual ~SetupService();
+    virtual ~ServerService();
 
     void virtual turnOnServer() = 0;
     void virtual turnOffServer() = 0;
@@ -16,6 +16,6 @@ public:
     void virtual selectDirectoryToServe(QString path) = 0;
 };
 
-inline SetupService::~SetupService() {}
+inline ServerService::~ServerService() {}
 
 #endif // SETUPSERVICE_H

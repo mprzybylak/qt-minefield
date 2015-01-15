@@ -15,7 +15,7 @@ class ServerWidget : public QWidget
     
 public:
 
-    explicit ServerWidget(SetupService* setupModel, QFileSystemModel* fileModel, QWidget* parent = 0);
+    explicit ServerWidget(ServerService* setupModel, QFileSystemModel* fileModel, QWidget* parent = 0);
     ~ServerWidget();
 
 private slots:
@@ -24,7 +24,7 @@ private slots:
     
 private:
     Ui::ServerWidget *view;
-    SetupService* setupModel;
+    ServerService* setupModel;
     QFileSystemModel* fileModel;
 };
 
