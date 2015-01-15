@@ -2,6 +2,7 @@
 #define SERVERWIDGET_H
 
 #include <QWidget>
+#include <QFileSystemModel>
 #include "../setup/application/api/SetupService.h"
 
 namespace Ui {
@@ -13,7 +14,8 @@ class ServerWidget : public QWidget
     Q_OBJECT
     
 public:
-    explicit ServerWidget(SetupService* setupService, QWidget* parent = 0);
+
+    explicit ServerWidget(SetupService* setupModel, QFileSystemModel* fileModel, QWidget* parent = 0);
     ~ServerWidget();
 
 private slots:
@@ -21,8 +23,9 @@ private slots:
     void selectDirectory();
     
 private:
-    Ui::ServerWidget *ui;
-    SetupService* setupService;
+    Ui::ServerWidget *view;
+    SetupService* setupModel;
+    QFileSystemModel* fileModel;
 };
 
 #endif // SERVERWIDGET_H

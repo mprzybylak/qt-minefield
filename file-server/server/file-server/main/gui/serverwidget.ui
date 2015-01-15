@@ -49,29 +49,15 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTableWidget" name="fileTable">
+  <widget class="QTableView" name="fileTable">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>21</y>
+     <y>11</y>
      <width>361</width>
-     <height>201</height>
+     <height>211</height>
     </rect>
    </property>
-   <property name="rowCount">
-    <number>0</number>
-   </property>
-   <property name="columnCount">
-    <number>1</number>
-   </property>
-   <column>
-    <property name="text">
-     <string>Files</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-    </property>
-   </column>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

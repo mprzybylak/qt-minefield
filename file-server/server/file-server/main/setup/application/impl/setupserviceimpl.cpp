@@ -41,16 +41,15 @@ bool SetupServiceImpl::isServerRunning()
     ServerSetup* setup = serverSetupRepository->load();
     if(setup == 0) {
         setup = serverSetupFactory->createServerSetup();
+        serverSetupRepository->store(setup);
     }
-
-    serverSetupRepository->store(setup);
 
     return setup->isServerRunning();
 }
 
-void SetupServiceImpl::selectDirectoryToServe(QString path)
+void SetupServiceImpl::selectDirectoryToServe(QString directoryToServe)
 {
-
+    this->directoryToServe = directoryToServe;
 }
 
 

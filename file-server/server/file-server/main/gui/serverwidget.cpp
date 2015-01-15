@@ -1,56 +1,45 @@
 #include "serverwidget.h"
 #include "ui_serverwidget.h"
 #include <QFileDialog>
-#include <QDirIterator>
 #include <QDebug>
 
-ServerWidget::ServerWidget(SetupService* setupService, QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::ServerWidget),
-    setupService(setupService)
+ServerWidget::ServerWidget(SetupService* setupModel, QFileSystemModel *fileModel, QWidget *parent) :
+    setupModel(setupModel),
+    view(new Ui::ServerWidget),
+    fileModel(fileModel),
+    QWidget(parent)
 {
-    ui->setupUi(this);
+    view->setupUi(this);
+    view->fileTable->setModel(fileModel);
 
-    ui->fileTable->horizontalHeader()->setStretchLastSection(true);
-
-    connect(ui->startStopServerButton, SIGNAL(clicked()), this, SLOT(startStopServer()));
-    connect(ui->selectDirectoryButton, SIGNAL(clicked()), this, SLOT(selectDirectory()));
+    connect(view->startStopServerButton, SIGNAL(clicked()), this, SLOT(startStopServer()));
+    connect(view->selectDirectoryButton, SIGNAL(clicked()), this, SLOT(selectDirectory()));
 }
 
-void ServerWidget::startStopServer() {
-
-    if(setupService->isServerRunning()) {
-        setupService->turnOffServer();
-        ui->startStopServerButton->setText("Stoped");
+void ServerWidget::startStopServer()
+{
+    if(setupModel->isServerRunning()) {
+        setupModel->turnOnServer();
+        view->startStopServerButton->setText("Running"); // TODO text to constants
     }
     else {
-        setupService->turnOnServer();
-        ui->startStopServerButton->setText("Running");
+        setupModel->turnOffServer();
+        view->startStopServerButton->setText("Stoped");
     }
 }
 
 void ServerWidget::selectDirectory()
 {
     QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    setupService->selectDirectoryToServe(dir);
-    ui->selectedDirectoryPath->setText(dir);
 
-    ui->fileTable->clear();
-    ui->fileTable->setRowCount(0);
-
-    QDirIterator it(dir);
-
-    while(it.hasNext()) {
-        it.next();
-        qDebug() << it.fileInfo().fileName();
-        QTableWidgetItem* item = new QTableWidgetItem(it.fileInfo().fileName());
-        ui->fileTable->insertRow(ui->fileTable->rowCount());
-        ui->fileTable->setItem(ui->fileTable->rowCount()-1, 0, item);
-    }
+    setupModel->selectDirectoryToServe(dir);
+    view->selectedDirectoryPath->setText(dir);
+    view->fileTable->setRootIndex(fileModel->index(dir));
 }
 
 ServerWidget::~ServerWidget()
 {
-    delete ui;
-    delete setupService;
+    delete view;
+    delete setupModel;
+    delete fileModel;
 }

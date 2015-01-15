@@ -7,7 +7,9 @@
 
 class SetupServiceImpl : public SetupService
 {
+
 public:
+
     SetupServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository);
     virtual ~SetupServiceImpl();
 
@@ -21,6 +23,7 @@ private:
 
     ServerSetupFactory* serverSetupFactory;
     ServerSetupRepository* serverSetupRepository;
+    QString directoryToServe;
 };
 
 #endif // SETUPSERVICEIMPL_H
