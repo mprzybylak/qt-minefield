@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QFileSystemModel>
-#include "../setup/application/api/SetupService.h"
+#include "../setup/application/api/setupservice.h"
 
 namespace Ui {
 class ServerWidget;
@@ -15,7 +15,7 @@ class ServerWidget : public QWidget
     
 public:
 
-    explicit ServerWidget(ServerService* setupModel, QFileSystemModel* fileModel, QWidget* parent = 0);
+    explicit ServerWidget(SetupService* setupModel, QFileSystemModel* fileModel, QWidget* parent = 0);
     ~ServerWidget();
 
 private slots:
@@ -24,7 +24,7 @@ private slots:
     
 private:
     Ui::ServerWidget *view;
-    ServerService* setupModel;
+    SetupService* setupModel;
     QFileSystemModel* fileModel;
 };
 

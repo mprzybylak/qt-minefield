@@ -3,7 +3,7 @@
 #include <QFileDialog>
 #include <QDebug>
 
-ServerWidget::ServerWidget(ServerService* setupModel, QFileSystemModel *fileModel, QWidget *parent) :
+ServerWidget::ServerWidget(SetupService* setupModel, QFileSystemModel *fileModel, QWidget *parent) :
     setupModel(setupModel),
     view(new Ui::ServerWidget),
     fileModel(fileModel),
@@ -19,12 +19,12 @@ ServerWidget::ServerWidget(ServerService* setupModel, QFileSystemModel *fileMode
 void ServerWidget::startStopServer()
 {
     if(setupModel->isServerRunning()) {
-        setupModel->turnOnServer();
-        view->startStopServerButton->setText("Running"); // TODO text to constants
+        setupModel->turnOffServer();
+        view->startStopServerButton->setText("Stoped"); // TODO text to constants
     }
     else {
-        setupModel->turnOffServer();
-        view->startStopServerButton->setText("Stoped");
+        setupModel->turnOnServer();
+        view->startStopServerButton->setText("Running");
     }
 }
 

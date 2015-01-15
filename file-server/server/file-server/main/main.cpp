@@ -1,7 +1,7 @@
 #include "gui/serverwidget.h"
 #include <QApplication>
 #include <QFileSystemModel>
-#include "setup/application/api/SetupService.h"
+#include "setup/application/api/setupservice.h"
 #include "setup/application/impl/setupserviceimpl.h"
 #include "setup/domain/Setup/serversetupfactory.h"
 #include "setup/infrastructure/repository/inmemoryserversetuprepository.h"
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     // SETUP SERVICE
     ServerSetupRepository* repository = new InMemoryServerSetupRepository();
     ServerSetupFactory* factory = new ServerSetupFactory();
-    ServerService* setupService = new ServerServiceImpl(factory, repository);
+    SetupService* setupService = new SetupServiceImpl(factory, repository);
 
     // FILE MODEL
     QFileSystemModel* fileModel = new QFileSystemModel();

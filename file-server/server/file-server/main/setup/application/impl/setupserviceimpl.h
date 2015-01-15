@@ -1,17 +1,17 @@
 #ifndef SETUPSERVICEIMPL_H
 #define SETUPSERVICEIMPL_H
 
-#include "../api/SetupService.h"
+#include "../api/setupservice.h"
 #include "../../domain/Setup/serversetupfactory.h"
 #include "../../domain/Setup/ServerSetupRepository.h"
 
-class ServerServiceImpl : public ServerService
+class SetupServiceImpl : public SetupService
 {
 
 public:
 
-    ServerServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository);
-    virtual ~ServerServiceImpl();
+    SetupServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository);
+    virtual ~SetupServiceImpl();
 
     void turnOnServer();
     void turnOffServer();
