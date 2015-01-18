@@ -1,7 +1,8 @@
 #include "inmemoryserversetuprepository.h"
+#include <QDebug>
 
 InMemoryServerSetupRepository::~InMemoryServerSetupRepository() {
-
+    delete serverSetup;
 }
 
 void InMemoryServerSetupRepository::store(ServerSetup* serverSetup)

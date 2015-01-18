@@ -1,4 +1,5 @@
 #include "setupserviceimpl.h"
+#include <QDebug>
 
 SetupServiceImpl::SetupServiceImpl(ServerSetupFactory* serverSetupFactory, ServerSetupRepository* serverSetupRepository):
     serverSetupFactory(serverSetupFactory),
@@ -44,7 +45,14 @@ bool SetupServiceImpl::isServerRunning()
 
 void SetupServiceImpl::selectDirectoryToServe(QString directoryToServe)
 {
-    this->directoryToServe = directoryToServe;
+    ServerSetup* setup = serverSetupRepository->load();
+    if(setup == 0) {
+        setup = serverSetupFactory->createServerSetup();
+    }
+
+    setup->setBaseDirectoryPath(directoryToServe);
+
+    serverSetupRepository->store(setup);
 }
 
 

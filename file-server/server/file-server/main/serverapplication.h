@@ -8,6 +8,7 @@
 #include "setup/application/impl/setupserviceimpl.h"
 #include "setup/domain/Setup/serversetupfactory.h"
 #include "setup/infrastructure/repository/inmemoryserversetuprepository.h"
+#include "setup/application/api/fileservice.h"
 
 class ServerApplication: public QApplication
 {
@@ -18,10 +19,16 @@ public:
 
 private:
 
+    // setup service
     ServerSetupRepository* repository;
     ServerSetupFactory* factory;
     SetupService* setupService;
     QFileSystemModel* fileModel;
+
+    // server service
+    FileService* fileService;
+
+    // view
     ServerWidget* view;
 };
 

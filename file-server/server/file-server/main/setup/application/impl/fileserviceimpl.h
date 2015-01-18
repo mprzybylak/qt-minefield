@@ -11,6 +11,7 @@ public:
 
     FileServiceImpl(ServerSetupRepository* serverSetupRepository);
     QString getRootDirectory();
+    QList<QString> getFileList();
 
 private:
 

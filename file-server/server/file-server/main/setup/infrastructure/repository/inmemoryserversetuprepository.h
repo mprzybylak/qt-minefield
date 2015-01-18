@@ -6,11 +6,15 @@
 class InMemoryServerSetupRepository : public ServerSetupRepository
 {
 public:
+
     virtual ~InMemoryServerSetupRepository();
     void store(ServerSetup* serverSetup);
     ServerSetup* load();
+
 private:
+
     ServerSetup* serverSetup;
+
 };
 
 #endif // INMEMORYSERVERSETUPREPOSITORY_H

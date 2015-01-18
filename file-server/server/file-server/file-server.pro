@@ -20,7 +20,9 @@ SOURCES += main/main.cpp\
     main/setup/infrastructure/repository/inmemoryserversetuprepository.cpp \
     main/setup/application/impl/setupserviceimpl.cpp \
     main/setup/application/impl/fileserviceimpl.cpp \
-    main/serverapplication.cpp
+    main/serverapplication.cpp \
+    main/setup/infrastructure/adapter/fileservicedbusimpl.cpp \
+    main/setup/infrastructure/adapter/fileservicedbusadaptor.cpp
 
 HEADERS  += main/gui/serverwidget.h \
     main/setup/domain/Setup/serversetup.h \
@@ -32,6 +34,8 @@ HEADERS  += main/gui/serverwidget.h \
     main/setup/application/impl/setupserviceimpl.h \
     main/setup/application/api/fileservice.h \
     main/setup/application/impl/fileserviceimpl.h \
-    main/serverapplication.h
+    main/serverapplication.h \
+    main/setup/infrastructure/adapter/fileservicedbusimpl.h \
+    main/setup/infrastructure/adapter/fileservicedbusadaptor.h
 
 FORMS    += main/gui/serverwidget.ui
