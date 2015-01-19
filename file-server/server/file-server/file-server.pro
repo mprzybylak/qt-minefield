@@ -11,11 +11,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = file-server
 TEMPLATE = app
 
-#DEFINES += GTEST_LINKED_AS_SHARED_LIBRARY=1
+INCLUDEPATH += 3rdparty/include/gtest \ # google test
+               3rdparty/include/gmock # google mock
 
-INCLUDEPATH += 3rdparty/include/gtest
-
-LIBS += -L 3rdparty/lib/gtest
+LIBS += -L3rdparty/lib/gtest -lgtest # google test
+LIBS += -L3rdparty/lib/gmock -lgmock # google mock
 
 SOURCES += main/main.cpp\
         main/gui/serverwidget.cpp \
@@ -29,7 +29,8 @@ SOURCES += main/main.cpp\
     main/serverapplication.cpp \
     main/setup/infrastructure/adapter/fileservicedbusimpl.cpp \
     main/setup/infrastructure/adapter/fileservicedbusadaptor.cpp \
-    main/setup/application/impl/test.cpp
+    main/setup/application/impl/test.cpp \
+    test/setup/application/impl/SetupServiceImplTest.cpp
 
 HEADERS  += main/gui/serverwidget.h \
     main/setup/domain/Setup/serversetup.h \

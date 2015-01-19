@@ -2,36 +2,32 @@
 #include "../../../../main/setup/domain/Setup/serversetup.h"
 #include "../../../../main/setup/domain/Setup/illegalserversetupexception.h"
 #include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
-// TODO separate files
-
-class ServerSetupTest : public QObject
+class ServerSetupTest
 {
-
-    Q_OBJECT
-
-private slots:
-    void shouldAllowToTurnOnServer();
-    void shouldAllowToTurnOffServer();
-    void shouldNotAllowToTurnOnRunningServer();
-    void shouldNotAllowToTurnOffStopedServer();
-    void shouldAllowToStoreBaseDirectory();
-    void shouldAllowToOverwriteBaseDirectory();
 };
 
-void ServerSetupTest::shouldAllowToTurnOnServer()
+ /*
+int main(int argc, char**argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+ */
+
+TEST(ServerSetupTest, shouldAllowToTurnOnServer)
 {
     // given
-    ServerSetup serverSetup;
+    ServerSetup setup;
 
     // when
-    serverSetup.turnOnServer();
+    setup.turnOnServer();
 
     // then
-    QVERIFY(serverSetup.isServerRunning() == true);
+    EXPECT_EQ(setup.isServerRunning(), true);
 }
 
-void ServerSetupTest::shouldAllowToTurnOffServer()
+TEST(ServerSetupTest, shouldAllowToTurnOffServer)
 {
     // given
     ServerSetup serverSetup;
@@ -41,41 +37,29 @@ void ServerSetupTest::shouldAllowToTurnOffServer()
     serverSetup.turnOffServer();
 
     // then
-    QVERIFY(serverSetup.isServerRunning() == false);
+    EXPECT_EQ(serverSetup.isServerRunning(), false);
 }
 
-void ServerSetupTest::shouldNotAllowToTurnOnRunningServer()
+TEST(ServerSetupTest, shouldNotAllowToTurnOnRunningServer)
 {
     // given
     ServerSetup serverSetup;
     serverSetup.turnOnServer();
 
     // when
-    try {
-        serverSetup.turnOnServer();
-        throw 0;
-    }
-    catch(IllegalServerSetupException) {
-
-    }
+    EXPECT_THROW(serverSetup.turnOnServer(), IllegalServerSetupException);
 }
 
-void ServerSetupTest::shouldNotAllowToTurnOffStopedServer()
+TEST(ServerSetupTest, shouldNotAllowToTurnOffStopedServer)
 {
     // given
     ServerSetup serverSetup;
 
     // when
-    try {
-        serverSetup.turnOffServer();
-        throw 0;
-    }
-    catch(IllegalServerSetupException) {
-
-    }
+    EXPECT_THROW(serverSetup.turnOffServer(), IllegalServerSetupException);
 }
 
-void ServerSetupTest::shouldAllowToStoreBaseDirectory()
+TEST(ServerSetupTest, shouldAllowToStoreBaseDirectory)
 {
     // given
     const QString PATH = "/home/";
@@ -84,12 +68,11 @@ void ServerSetupTest::shouldAllowToStoreBaseDirectory()
     // when
     serverSetup.setBaseDirectoryPath(PATH);
 
-    // then
-    QVERIFY(serverSetup.getBaseDirectoryPath() == PATH);
-
+    // them
+    EXPECT_EQ(serverSetup.getBaseDirectoryPath(), PATH);
 }
 
-void ServerSetupTest::shouldAllowToOverwriteBaseDirectory()
+TEST(ServerSetupTest, shouldAllowToOverwriteBaseDirectory)
 {
     // given
     const QString OLD_PATH = "/home/old";
@@ -101,21 +84,6 @@ void ServerSetupTest::shouldAllowToOverwriteBaseDirectory()
     serverSetup.setBaseDirectoryPath(NEW_PATH);
 
     // then
-    QVERIFY(serverSetup.getBaseDirectoryPath() != OLD_PATH);
-    QVERIFY(serverSetup.getBaseDirectoryPath() == NEW_PATH);
-
+    EXPECT_NE(serverSetup.getBaseDirectoryPath(),  OLD_PATH);
+    EXPECT_EQ(serverSetup.getBaseDirectoryPath(), NEW_PATH);
 }
-
-TEST(SquereRootTest, PositiveNos) {
-    EXPECT_EQ(18, 18);
-}
-
-int main(int argc, char**argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
- /*
-QTEST_MAIN(ServerSetupTest)
-#include "serversetuptest.moc"
- */
