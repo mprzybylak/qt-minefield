@@ -29,3 +29,7 @@ QList<QString> FileServiceImpl::getFileList()
     list.append("3");
     return list;
 }
+
+Test FileServiceImpl::getTest() {
+    return Test(1,2);
+}

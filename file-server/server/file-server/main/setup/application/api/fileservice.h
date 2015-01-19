@@ -4,6 +4,8 @@
 #include <QString>
 #include <QVector>
 #include <QList>
+#include <QMetaType>
+#include "../impl/test.h" // TODO test jest raczej w czesci api niz impl
 
 class FileService {
 
@@ -13,6 +15,7 @@ public:
 
     virtual QString getRootDirectory() = 0;
     virtual QList<QString> getFileList() = 0;
+    virtual Test getTest() = 0;
 
 };
 

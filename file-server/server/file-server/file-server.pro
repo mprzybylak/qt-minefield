@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui testlib
+QT       += core gui testlib dbus
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -22,7 +22,8 @@ SOURCES += main/main.cpp\
     main/setup/application/impl/fileserviceimpl.cpp \
     main/serverapplication.cpp \
     main/setup/infrastructure/adapter/fileservicedbusimpl.cpp \
-    main/setup/infrastructure/adapter/fileservicedbusadaptor.cpp
+    main/setup/infrastructure/adapter/fileservicedbusadaptor.cpp \
+    main/setup/application/impl/test.cpp
 
 HEADERS  += main/gui/serverwidget.h \
     main/setup/domain/Setup/serversetup.h \
@@ -36,6 +37,7 @@ HEADERS  += main/gui/serverwidget.h \
     main/setup/application/impl/fileserviceimpl.h \
     main/serverapplication.h \
     main/setup/infrastructure/adapter/fileservicedbusimpl.h \
-    main/setup/infrastructure/adapter/fileservicedbusadaptor.h
+    main/setup/infrastructure/adapter/fileservicedbusadaptor.h \
+    main/setup/application/impl/test.h
 
 FORMS    += main/gui/serverwidget.ui

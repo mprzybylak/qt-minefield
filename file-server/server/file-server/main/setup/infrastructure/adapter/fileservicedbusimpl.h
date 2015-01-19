@@ -6,8 +6,6 @@
 #include <QMetaType>
 #include "../../application/api/fileservice.h"
 
-Q_DECLARE_METATYPE(QList<QString>)
-
 class FileServiceDBusImpl : public QObject, public FileService
 {
 
@@ -23,7 +21,7 @@ public slots:
 
     QString getRootDirectory();
     QList<QString> getFileList();
-
+    Test getTest();
 private:
 
     FileService* service;
