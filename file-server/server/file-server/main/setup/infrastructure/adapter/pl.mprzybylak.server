@@ -4,10 +4,16 @@
     <method name="getRootDirectory">
       <arg type="s" direction="out"/>
     </method>
-	
+
     <method name="getTest">
       <arg  direction="out" name="test" type="(ii)"/>
       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="Test"/>
     </method>
+
+    <method name="getTests">
+      <arg  direction="out" name="testlist" type="a(ii)"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="TestList"/>
+    </method>
+
   </interface>
 </node>

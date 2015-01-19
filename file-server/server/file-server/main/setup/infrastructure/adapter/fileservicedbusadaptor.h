@@ -9,8 +9,8 @@
  * before re-generating it.
  */
 
-#ifndef FILESERVICEDBUSADAPTOR_H_1421657601
-#define FILESERVICEDBUSADAPTOR_H_1421657601
+#ifndef FILESERVICEDBUSADAPTOR_H_1421667795
+#define FILESERVICEDBUSADAPTOR_H_1421667795
 
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
@@ -40,6 +40,10 @@ class FileServiceDBusAdaptor: public QDBusAbstractAdaptor
 "      <arg direction=\"out\" type=\"(ii)\" name=\"test\"/>\n"
 "      <annotation value=\"Test\" name=\"org.qtproject.QtDBus.QtTypeName.Out0\"/>\n"
 "    </method>\n"
+"    <method name=\"getTests\">\n"
+"      <arg direction=\"out\" type=\"a(ii)\" name=\"test\"/>\n"
+"      <annotation value=\"TestList\" name=\"org.qtproject.QtDBus.QtTypeName.Out0\"/>\n"
+"    </method>\n"
 "  </interface>\n"
         "")
 public:
@@ -50,6 +54,7 @@ public: // PROPERTIES
 public Q_SLOTS: // METHODS
     QString getRootDirectory();
     Test getTest();
+    TestList getTests();
 Q_SIGNALS: // SIGNALS
 };
 

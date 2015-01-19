@@ -22,6 +22,8 @@ public slots:
     QString getRootDirectory();
     QList<QString> getFileList();
     Test getTest();
+    TestList getTests();
+
 private:
 
     FileService* service;

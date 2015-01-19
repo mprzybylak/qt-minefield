@@ -6,6 +6,7 @@
 FileServiceDBusImpl::FileServiceDBusImpl(FileService *service, QObject *parent): QObject(parent), service(service)
 {
     qDBusRegisterMetaType<Test>();
+    qDBusRegisterMetaType<TestList>();
 
     new FileServiceDBusAdaptor(this);
 
@@ -28,10 +29,17 @@ QString FileServiceDBusImpl::getRootDirectory()
 
 Test FileServiceDBusImpl::getTest()
 {
-    return Test(1,2);
+    qDebug() << "get test";
+    return service->getTest();
 }
 
 QList<QString> FileServiceDBusImpl::getFileList()
 {
+    qDebug() << "get file list";
     return service->getFileList();
+}
+TestList FileServiceDBusImpl::getTests()
+{
+    qDebug() << "get tests";
+    return service->getTests();
 }

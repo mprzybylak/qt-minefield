@@ -49,3 +49,11 @@ Test FileServiceDBusAdaptor::getTest()
     return test;
 }
 
+TestList FileServiceDBusAdaptor::getTests()
+{
+    // handle method call local.FileServiceDBusImpl.getTests
+    TestList test;
+    QMetaObject::invokeMethod(parent(), "getTests", Q_RETURN_ARG(TestList, test));
+    return test;
+}
+
