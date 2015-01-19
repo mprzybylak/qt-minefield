@@ -2,7 +2,6 @@
 #include "fileservicedbusimpl.h"
 #include "fileservicedbusadaptor.h"
 
-
 FileServiceDBusImpl::FileServiceDBusImpl(FileService *service, QObject *parent): QObject(parent), service(service)
 {
     qDBusRegisterMetaType<Test>();

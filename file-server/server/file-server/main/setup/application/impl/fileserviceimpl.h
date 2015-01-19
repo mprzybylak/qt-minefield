@@ -13,6 +13,7 @@ public:
     QString getRootDirectory();
     QList<QString> getFileList();
     Test getTest();
+    TestList getTests();
 
 private:
 

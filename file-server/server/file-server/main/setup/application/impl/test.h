@@ -13,19 +13,18 @@ public:
 
     int getA() const;
     int getB() const ;
-    void setA(int a);
-    void setB(int b);
 
     friend QDBusArgument &operator<<(QDBusArgument &argument, const Test test);
     friend const QDBusArgument &operator>>(const QDBusArgument &argument, Test test);
-
-    static void registerMetaType();
 
 private:
     int a;
     int b;
 };
 
+typedef QList<Test> TestList;
+
 Q_DECLARE_METATYPE(Test)
+Q_DECLARE_METATYPE(TestList)
 
 #endif // TEST_H

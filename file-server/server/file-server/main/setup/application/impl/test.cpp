@@ -14,10 +14,6 @@ int Test::getA() const {return a;}
 
 int Test::getB() const {return b;}
 
-void Test::setA(int a) { this->a = a; }
-
-void Test::setB(int b) { this->b = b; }
-
 QDBusArgument &operator<<(QDBusArgument &argument, const Test test) {
     argument.beginStructure();
     argument << test.getA() << test.getB();
@@ -27,11 +23,6 @@ QDBusArgument &operator<<(QDBusArgument &argument, const Test test) {
 const QDBusArgument &operator>>(const QDBusArgument &argument, Test test) {
     argument.beginStructure();
     argument >> test.a >> test.b;
+    argument.endStructure();
     return argument;
-}
-
-void Test::registerMetaType()
-{
-    qRegisterMetaType<Test>("Test");
-    qDBusRegisterMetaType<Test>();
 }

@@ -3,7 +3,7 @@
 #include <QFileSystemModel>
 
 #include "serverapplication.h"
-// /*
+ /*
 
 int main(int argc, char *argv[])
 {
@@ -11,4 +11,4 @@ int main(int argc, char *argv[])
 }
 
 
-// */
+ */

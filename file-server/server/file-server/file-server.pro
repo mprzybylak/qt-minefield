@@ -11,6 +11,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = file-server
 TEMPLATE = app
 
+#DEFINES += GTEST_LINKED_AS_SHARED_LIBRARY=1
+
+INCLUDEPATH += 3rdparty/include/gtest
+
+LIBS += -L 3rdparty/lib/gtest
+
 SOURCES += main/main.cpp\
         main/gui/serverwidget.cpp \
     main/setup/domain/Setup/serversetup.cpp \

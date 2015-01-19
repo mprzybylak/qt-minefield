@@ -15,7 +15,11 @@ public:
 
     virtual QString getRootDirectory() = 0;
     virtual QList<QString> getFileList() = 0;
+
+
+
     virtual Test getTest() = 0;
+    virtual TestList getTests() = 0;
 
 };
 

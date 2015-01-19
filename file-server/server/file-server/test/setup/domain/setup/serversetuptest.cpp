@@ -1,7 +1,7 @@
 #include <QtTest/QTest>
 #include "../../../../main/setup/domain/Setup/serversetup.h"
 #include "../../../../main/setup/domain/Setup/illegalserversetupexception.h"
-
+#include <gtest/gtest.h>
 
 // TODO separate files
 
@@ -104,6 +104,15 @@ void ServerSetupTest::shouldAllowToOverwriteBaseDirectory()
     QVERIFY(serverSetup.getBaseDirectoryPath() != OLD_PATH);
     QVERIFY(serverSetup.getBaseDirectoryPath() == NEW_PATH);
 
+}
+
+TEST(SquereRootTest, PositiveNos) {
+    EXPECT_EQ(18, 18);
+}
+
+int main(int argc, char**argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
 
  /*
