@@ -6,7 +6,7 @@
 class ServerSetupRepository {
 
 public:
-    virtual ~ServerSetupRepository() {};
+    virtual ~ServerSetupRepository() {}
     virtual void store(ServerSetup* serverSetup) = 0;
     virtual ServerSetup* load() = 0;
 };

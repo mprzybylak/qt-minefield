@@ -11,13 +11,17 @@ SetupServiceImpl::SetupServiceImpl(ServerSetupFactory* serverSetupFactory, Serve
 void SetupServiceImpl::turnOnServer()
 {
     ServerSetup* setup = serverSetupRepository->load();
+    qDebug() << "1";
     if(setup == 0) {
+        qDebug() << "if = true";
         setup = serverSetupFactory->createServerSetup();
+        qDebug() << setup->isServerRunning();
     }
-
+    qDebug() << "3";
     setup->turnOnServer();
-
+    qDebug() << "4";
     serverSetupRepository->store(setup);
+    qDebug() << "5";
 }
 
 void SetupServiceImpl::turnOffServer()
@@ -55,5 +59,12 @@ void SetupServiceImpl::selectDirectoryToServe(QString directoryToServe)
     serverSetupRepository->store(setup);
 }
 
-
+QString SetupServiceImpl::getServedDirectory()
+{
+    ServerSetup* setup = serverSetupRepository->load();
+    if(setup == 0) {
+        setup = serverSetupFactory->createServerSetup();
+    }
+    return setup->getBaseDirectoryPath();
+}
 

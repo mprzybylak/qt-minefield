@@ -17,6 +17,7 @@ public:
     bool isServerRunning();
 
     void selectDirectoryToServe(QString path);
+    QString getServedDirectory();
 
 private:
 

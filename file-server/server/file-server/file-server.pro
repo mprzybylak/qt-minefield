@@ -45,6 +45,8 @@ HEADERS  += main/gui/serverwidget.h \
     main/serverapplication.h \
     main/setup/infrastructure/adapter/fileservicedbusimpl.h \
     main/setup/infrastructure/adapter/fileservicedbusadaptor.h \
-    main/setup/application/impl/test.h
+    main/setup/application/impl/test.h \
+    test/setup/domain/setup/setupsetupfactorymock.h \
+    test/setup/domain/setup/ServerSetupRepositoryTest.h
 
 FORMS    += main/gui/serverwidget.ui
